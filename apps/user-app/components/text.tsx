@@ -2,9 +2,10 @@
 
 import { useBalance } from "@repo/store/balance";
 
-export default function() {
-  const balance = useBalance();
-  return <div>
-    hi there {balance}
-  </div>
+function Balance() {
+    const value = useBalance();
+    console.log(value)
+    return <p>The current balance is {value}</p>;
 }
+
+export default Balance;
