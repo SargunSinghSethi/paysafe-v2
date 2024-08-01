@@ -35,10 +35,12 @@ export const authOptions = {
                 try {
                     const user = await db.user.create({
                         data: {
-                            number: credentials.number,
-                            password: credentials.password,
+                            number: credentials.phone,
+                            password: hashedPassword,
                         }
                     });
+
+                    // TODO: send an otp to the user for validation
 
                     return {
                         id: user.id.toString(),
