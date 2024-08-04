@@ -9,7 +9,7 @@ app.use(express.json());
 const paymentSchema = z.object({
     token: z.string(),
     user_identifier: z.number(),
-    amount: z.number(),
+    amount: z.string(),
     // secret?: z.string(),
 })
 
@@ -30,6 +30,9 @@ app.post("/hdfcWebhook", async (req, res) => {
     //         message: "Invalid secret key",
     //     });
     // }
+
+    // TODO: CHECK if this transaction is already completed or not
+    // TODO: MAKE A QUEUE TO ENSURE THAT AT A Time only one transaction happens
     try {
         await db.$transaction([
             db.balance.update({
@@ -38,7 +41,7 @@ app.post("/hdfcWebhook", async (req, res) => {
                 },
                 data: {
                     amount: {
-                        increment: paymentInformation.amount,
+                        increment: Number(paymentInformation.amount),
                     },
                 },
             }),

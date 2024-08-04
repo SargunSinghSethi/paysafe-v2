@@ -15,6 +15,7 @@ export const TextInput = ({
     <div className="pt-2">
       <label className="block mb-2 text-sm font-medium text-gray-900">{label}</label>
       <input
+        autoComplete="off"
         onChange={(e) => onChange(e.target.value)}
         type="text"
         id="first_name"
