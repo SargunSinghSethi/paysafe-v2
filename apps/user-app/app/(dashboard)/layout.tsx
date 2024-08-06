@@ -1,4 +1,5 @@
 import { SidebarItem } from "../../components/SidebarItem";
+import { UserSettings } from "../../components/UserSettings";
 
 
 export default function Layout({
@@ -8,13 +9,19 @@ export default function Layout({
 }>) {
     return (
         <div className="flex">
-            <div className="w-72 border-r border-slate-300 min-h-screen mr-4 pt-28">
-                <div>
+            <div className="w-72 flex flex-col justify-between border-r border-slate-300 min-h-screen mr-4">
+                    <div className="text-xl p-2 pl-8">
+                        PaySafe
+                    </div>
+                    <div>
                     <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />
                     <SidebarItem href={"/transfer"} icon={<TransferIcon />} title="Transfer" />
                     <SidebarItem href={"/transactions"} icon={<TransactionsIcon />} title="Transactions" />
                     <SidebarItem href={"/p2p"} icon={<P2PTransferIcon />} title="P2P Transfer" />
-                </div>
+                    </div>
+                    <div>
+                        <UserSettings />
+                    </div>
             </div>
             {children}
         </div>
