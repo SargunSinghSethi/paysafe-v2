@@ -2,7 +2,7 @@ import AuthForm from "../../../components/AuthForm"
 
 const SignUp = () => {
   return (
-    <section className="flex justify-center items-center size-full max-sm:px-6">
+    <section className="flex-center size-full max-sm:px-6">
         <AuthForm type="sign-up"/>
     </section>
   )
